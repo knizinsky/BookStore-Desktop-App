@@ -1,0 +1,12 @@
+﻿<Window x:Class="BookStoreApp.BookForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Book Form" Height="250" Width="400">
+    <Grid>
+        <Label Content="Tytuł"/>
+        <TextBox Text="{Binding Book.title}" Width="200"/>
+        <!-- Dodaj inne kontrolek dla innych właściwości książki -->
+        <Button Content="Zapisz" Click="SaveButton_Click" Margin="73,113,200,62"/>
+        <Button Content="Anuluj" Click="CancelButton_Click" Margin="279,117,26,56"/>
+    </Grid>
+</Window>
