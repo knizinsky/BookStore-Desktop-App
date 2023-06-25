@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApp
 {
@@ -30,8 +31,8 @@ namespace BookStoreApp
 
             modelBuilder.Entity<Orders>()
                 .HasOne(o => o.Book)
-                .WithMany(b => b.Orders);
-                //.HasForeignKey(o => o.bookId);
+                .WithMany(b => b.Orders)
+                .HasForeignKey(o => o.bookId);
         }
     }
 }

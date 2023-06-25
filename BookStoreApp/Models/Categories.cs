@@ -9,7 +9,6 @@ namespace BookStoreApp
         public string name { get; set; }
         public string description { get; set; }
 
-        //[ForeignKey("categoriesId")]
         public ICollection<Book> Book { get; set; }
 
         public Categories()

@@ -26,8 +26,11 @@ namespace BookStoreApp
             var selectedBook = (Book)BookList.SelectedItem;
             if (selectedBook != null)
             {
-                BookForm bookForm = new BookForm();
-                bookForm.DataContext = new BookFormViewModel { Book = selectedBook };
+                // Przypisz istniejącą instancję autora i kategorii do książki
+                selectedBook.Authors = selectedBook.Authors; // Zmienić na istniejącą instancję autora
+                selectedBook.Categories = selectedBook.Categories; // Zmienić na istniejącą instancję kategorii
+
+                BookForm bookForm = new BookForm(selectedBook);
                 bookForm.ShowDialog();
                 _viewModel.RefreshBookList();
             }
@@ -36,6 +39,8 @@ namespace BookStoreApp
                 MessageBox.Show("Wybierz książkę do edycji.");
             }
         }
+
+
 
         private void DeleteBookButton_Click(object sender, RoutedEventArgs e)
         {

@@ -11,6 +11,8 @@ namespace BookStoreApp
         public int orderId { get; set; }
         public string orderType { get; set; }
         public DateTime expectedOrderDate { get; set; }
+        public int bookId { get; set; }
+
 
         [ForeignKey("orderId")]
         public Book Book { get; set; }

@@ -13,34 +13,33 @@ namespace BookStoreApp
         public ObservableCollection<Authors> Authors { get; set; }
         public ObservableCollection<Categories> Categories { get; set; }
 
-        public BookFormViewModel()
+        public BookFormViewModel(Book book)
         {
             _dbContext = new BookStoreDbContext();
-            Book = new Book();
+            Book = book;
             Authors = new ObservableCollection<Authors>(_dbContext.Authors.ToList());
             Categories = new ObservableCollection<Categories>(_dbContext.Categories.ToList());
         }
 
-        internal void SaveBook()
+        internal void SaveBook(Book book)
         {
-            try
+            if (book.bookId == 0)
             {
-                if (Book.bookId == 0)
-                {
-                    _dbContext.Books.Add(Book);
-                }
-                else
-                {
-                    _dbContext.Books.Update(Book);
-                }
-
-                _dbContext.SaveChanges();
-                MessageBox.Show("Książka została zapisana.");
+                _dbContext.Books.Add(book);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Wystąpił błąd podczas zapisywania książki: {ex.Message}");
+                var existingBook = _dbContext.Books.Find(book.bookId);
+                if (existingBook != null)
+                {
+                    _dbContext.Entry(existingBook).CurrentValues.SetValues(book);
+                    _dbContext.Entry(existingBook).Property(x => x.AuthorsId).IsModified = true;
+                }
             }
+            _dbContext.SaveChanges();
         }
+
+
     }
+
 }
