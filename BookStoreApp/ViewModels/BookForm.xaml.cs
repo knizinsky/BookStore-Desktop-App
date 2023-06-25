@@ -6,16 +6,16 @@ namespace BookStoreApp
     {
         private BookFormViewModel _viewModel;
 
-        public BookForm(Book? book = null)
+        public BookForm()
         {
             InitializeComponent();
-            _viewModel = new BookFormViewModel(book ?? new Book());
+            _viewModel = new BookFormViewModel();
             DataContext = _viewModel;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.SaveBook(_viewModel.Book);
+            _viewModel.SaveBook();
             Close();
         }
 
@@ -24,5 +24,4 @@ namespace BookStoreApp
             Close();
         }
     }
-
 }
