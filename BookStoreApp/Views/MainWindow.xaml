@@ -16,7 +16,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Dodaj książkę" Click="AddBookButton_Click" Margin="10,278,627,86"/>
-        <Button Content="Edytuj książkę" Click="EditBookButton_Click" Margin="264,256,300,86"/>
         <Button Content="Usuń książkę" Click="DeleteBookButton_Click" Margin="566,237,45,113"/>
+        <Button Content="Zamów książkę" Click="OrderBookButton_Click" Margin="264,256,300,86"/>
     </Grid>
 </Window>

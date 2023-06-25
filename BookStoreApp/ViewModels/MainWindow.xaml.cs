@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 
 namespace BookStoreApp
@@ -21,22 +22,6 @@ namespace BookStoreApp
             _viewModel.RefreshBookList();
         }
 
-        private void EditBookButton_Click(object sender, RoutedEventArgs e)
-        {
-            var selectedBook = (Book)BookList.SelectedItem;
-            if (selectedBook != null)
-            {
-                BookForm bookForm = new BookForm();
-                bookForm.DataContext = new BookFormViewModel { Book = selectedBook };
-                bookForm.ShowDialog();
-                _viewModel.RefreshBookList();
-            }
-            else
-            {
-                MessageBox.Show("Wybierz książkę do edycji.");
-            }
-        }
-
         private void DeleteBookButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedBook = (Book)BookList.SelectedItem;
@@ -54,5 +39,28 @@ namespace BookStoreApp
                 MessageBox.Show("Wybierz książkę do usunięcia.");
             }
         }
+
+        private void OrderBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBook = (Book)BookList.SelectedItem;
+            if (selectedBook != null)
+            {
+                // Implementacja zamawiania książki za pomocą Orders
+                var order = new Orders
+                {
+                    orderType = "Zamówienie",
+                    expectedOrderDate = DateTime.Now.AddDays(7),
+                    bookId = selectedBook.bookId
+                };
+
+                _viewModel.CreateOrder(order);
+                MessageBox.Show("Książka została zamówiona.");
+            }
+            else
+            {
+                MessageBox.Show("Wybierz książkę do zamówienia.");
+            }
+        }
     }
+
 }

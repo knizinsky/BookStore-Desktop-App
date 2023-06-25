@@ -39,5 +39,19 @@ namespace BookStoreApp
                 MessageBox.Show($"Wystąpił błąd podczas usuwania książki: {ex.Message}");
             }
         }
+
+        internal void CreateOrder(Orders order)
+        {
+            try
+            {
+                _dbContext.Orders.Add(order);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd podczas tworzenia zamówienia: {ex.Message}");
+            }
+        }
     }
+
 }

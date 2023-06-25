@@ -25,15 +25,7 @@ namespace BookStoreApp
         {
             try
             {
-                if (Book.bookId == 0)
-                {
-                    _dbContext.Books.Add(Book);
-                }
-                else
-                {
-                    _dbContext.Books.Update(Book);
-                }
-
+                _dbContext.Books.Add(Book);
                 _dbContext.SaveChanges();
                 MessageBox.Show("Książka została zapisana.");
             }
@@ -43,4 +35,5 @@ namespace BookStoreApp
             }
         }
     }
+
 }
