@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
@@ -7,7 +8,6 @@ namespace BookStoreApp
     public class Book
     {
         public int bookId { get; set; }
-        [AllowNull]
         public string title { get; set; }
         public string ISBN { get; set; }
         public string description { get; set; }
@@ -24,14 +24,6 @@ namespace BookStoreApp
 
         public ICollection<Orders> Orders { get; set; }
 
-        public Book()
-        {
-            title = string.Empty;
-            ISBN = string.Empty;
-            description = string.Empty;
-            Category = new Categories();
-            Author = new Authors();
-            Orders = new List<Orders>();
-        }
+        
     }
 }

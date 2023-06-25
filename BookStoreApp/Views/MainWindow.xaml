@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Book Store" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="BookList" ItemsSource="{Binding Books}" Margin="92,56,76,270">
+        <ListBox x:Name="BookList" ItemsSource="{Binding Books}" Margin="92,56,400,270">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -18,5 +18,20 @@
         <Button Content="Dodaj książkę" Click="AddBookButton_Click" Margin="10,278,627,86"/>
         <Button Content="Usuń książkę" Click="DeleteBookButton_Click" Margin="566,237,45,113"/>
         <Button Content="Zamów książkę" Click="OrderBookButton_Click" Margin="264,256,300,86"/>
+
+        <StackPanel Margin="415,56,18,217">
+            <TextBlock Text="Lista zamówień:" FontWeight="Bold" Margin="10"/>
+            <ListBox x:Name="OrderList" ItemsSource="{Binding Orders}" Height="100" Width="282">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding orderType}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding expectedOrderDate}"/>
+                            <!-- Wyświetl inne właściwości zamówienia -->
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Window>

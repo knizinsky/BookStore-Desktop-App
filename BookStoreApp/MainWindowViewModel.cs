@@ -10,21 +10,31 @@ namespace BookStoreApp
     {
         private BookStoreDbContext _dbContext;
         public ObservableCollection<Book> Books { get; set; }
+        public ObservableCollection<Orders> Orders { get; set; }
 
         public MainWindowViewModel()
         {
             _dbContext = new BookStoreDbContext();
             Books = new ObservableCollection<Book>(_dbContext.Books.Include("Author").Include("Category").ToList());
+            Orders = new ObservableCollection<Orders>(_dbContext.Orders.Include("Book").ToList());
         }
 
         internal void RefreshBookList()
         {
             Books.Clear();
+            Orders.Clear();
+
             foreach (var book in _dbContext.Books.Include("Author").Include("Category").ToList())
             {
                 Books.Add(book);
             }
+
+            foreach (var order in _dbContext.Orders.Include("Book").ToList())
+            {
+                Orders.Add(order);
+            }
         }
+
 
         internal void DeleteBook(Book book)
         {
@@ -49,7 +59,7 @@ namespace BookStoreApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Wystąpił błąd podczas tworzenia zamówienia: {ex.Message}");
+                MessageBox.Show($"Wystąpił błąd podczas tworzenia zamówienia: {ex.InnerException}");
             }
         }
     }

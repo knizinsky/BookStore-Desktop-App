@@ -45,7 +45,6 @@ namespace BookStoreApp
             var selectedBook = (Book)BookList.SelectedItem;
             if (selectedBook != null)
             {
-                // Implementacja zamawiania książki za pomocą Orders
                 var order = new Orders
                 {
                     orderType = "Zamówienie",
@@ -54,6 +53,7 @@ namespace BookStoreApp
                 };
 
                 _viewModel.CreateOrder(order);
+                _viewModel.RefreshBookList();
                 MessageBox.Show("Książka została zamówiona.");
             }
             else
@@ -61,6 +61,7 @@ namespace BookStoreApp
                 MessageBox.Show("Wybierz książkę do zamówienia.");
             }
         }
+
     }
 
 }
