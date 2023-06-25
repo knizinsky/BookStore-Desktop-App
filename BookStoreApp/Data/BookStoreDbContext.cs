@@ -17,6 +17,21 @@ namespace BookStoreApp
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
+
+            modelBuilder.Entity<Book>()
+            .HasOne(b => b.Author)
+            .WithMany(a => a.Book)
+            .HasForeignKey(b => b.AuthorsId);
+
+            modelBuilder.Entity<Book>()
+                .HasOne(b => b.Category)
+                .WithMany(c => c.Book)
+                .HasForeignKey(b => b.categoriesId);
+
+            modelBuilder.Entity<Orders>()
+                .HasOne(o => o.Book)
+                .WithMany(b => b.Orders);
+                //.HasForeignKey(o => o.bookId);
         }
     }
 }

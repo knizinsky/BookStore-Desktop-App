@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookStoreApp
 {
@@ -11,6 +12,7 @@ namespace BookStoreApp
         public string orderType { get; set; }
         public DateTime expectedOrderDate { get; set; }
 
+        [ForeignKey("orderId")]
         public Book Book { get; set; }
 
         public Orders()

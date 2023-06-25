@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BookStoreApp
 {
@@ -11,10 +13,16 @@ namespace BookStoreApp
         public string description { get; set; }
         public int price { get; set; }
         public int amount { get; set; }
+        public int AuthorsId { get; set; }
         public int categoriesId { get; set; }
 
+        [ForeignKey("AuthorsId")]
         public Authors Author { get; set; }
+
+        [ForeignKey("categoriesId")]
         public Categories Category { get; set; }
+
+        public ICollection<Orders> Orders { get; set; }
 
         public Book()
         {
@@ -23,6 +31,7 @@ namespace BookStoreApp
             description = string.Empty;
             Category = new Categories();
             Author = new Authors();
+            Orders = new List<Orders>();
         }
     }
 }

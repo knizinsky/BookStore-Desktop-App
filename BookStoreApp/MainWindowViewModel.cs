@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -13,13 +14,13 @@ namespace BookStoreApp
         public MainWindowViewModel()
         {
             _dbContext = new BookStoreDbContext();
-            Books = new ObservableCollection<Book>(_dbContext.Books.ToList());
+            Books = new ObservableCollection<Book>(_dbContext.Books.Include("Author").Include("Category").ToList());
         }
 
         internal void RefreshBookList()
         {
             Books.Clear();
-            foreach (var book in _dbContext.Books.ToList())
+            foreach (var book in _dbContext.Books.Include("Author").Include("Category").ToList())
             {
                 Books.Add(book);
             }

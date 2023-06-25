@@ -12,6 +12,7 @@ namespace BookStoreApp
         public string name { get; set; }
         public string secondName { get; set; }
 
+        //[ForeignKey("AuthorsId")]
         public ICollection<Book> Book { get; set; }
 
         public Authors()

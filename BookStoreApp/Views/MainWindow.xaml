@@ -3,9 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Book Store" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="BookList" ItemsSource="{Binding Books}" DisplayMemberPath="title" Margin="0,326,583,0"/>
-        <Button Content="Dodaj książkę" Click="AddBookButton_Click" Margin="10,237,627,127"/>
-        <Button Content="Edytuj książkę" Click="EditBookButton_Click" Margin="204,226,360,116"/>
-        <Button Content="Usuń książkę" Click="DeleteBookButton_Click" Margin="490,230,121,120"/>
+        <ListBox x:Name="BookList" ItemsSource="{Binding Books}" Margin="92,56,76,270">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding title}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Author.name}"/>
+                        <TextBlock Text="{Binding Category.name}"/>
+                        <!-- Wyświetl inne właściwości książki -->
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Dodaj książkę" Click="AddBookButton_Click" Margin="10,278,627,86"/>
+        <Button Content="Edytuj książkę" Click="EditBookButton_Click" Margin="264,256,300,86"/>
+        <Button Content="Usuń książkę" Click="DeleteBookButton_Click" Margin="566,237,45,113"/>
     </Grid>
 </Window>

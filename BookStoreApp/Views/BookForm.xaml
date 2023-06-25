@@ -1,12 +1,30 @@
 ﻿<Window x:Class="BookStoreApp.BookForm"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Book Form" Height="250" Width="400">
-    <Grid>
-        <Label Content="Tytuł"/>
-        <TextBox Text="{Binding Book.title}" Width="200"/>
-        <!-- Dodaj inne kontrolek dla innych właściwości książki -->
-        <Button Content="Zapisz" Click="SaveButton_Click" Margin="73,113,200,62"/>
-        <Button Content="Anuluj" Click="CancelButton_Click" Margin="279,117,26,56"/>
+        Title="Book Form" Height="465" Width="700">
+    <Grid Margin="0,0,0,-6">
+        <Label Content="Tytuł" Margin="29,20,240,386"/>
+        <TextBox Text="{Binding Book.title}" Margin="95,19,45,386"/>
+
+        <Label Content="Autor" Margin="29,57,109,348"/>
+        <TextBox Text="{Binding Book.Author.name}" Margin="95,56,45,348"/>
+
+        <Label Content="Kategoria" Margin="29,96,45,309"/>
+        <TextBox Text="{Binding Book.Category.name}" Margin="95,96,45,309"/>
+
+        <Label Content="ISBN" Margin="29,133,45,272"/>
+        <TextBox Text="{Binding Book.ISBN}" Margin="95,133,45,272"/>
+
+        <Label Content="Opis" Margin="29,171,45,238"/>
+        <TextBox Text="{Binding Book.description}" Margin="95,171,45,238"/>
+
+        <Label Content="Cena" Margin="29,206,45,199"/>
+        <TextBox Text="{Binding Book.price}" Margin="95,244,45,161"/>
+
+        <Label Content="Ilość" Margin="29,244,45,161"/>
+        <TextBox Text="{Binding Book.amount}" Margin="95,206,45,199"/>
+
+        <Button Content="Zapisz" Click="SaveButton_Click" Margin="149,304,405,72"/>
+        <Button Content="Anuluj" Click="CancelButton_Click" Margin="427,304,127,72"/>
     </Grid>
 </Window>
