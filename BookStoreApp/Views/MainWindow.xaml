@@ -3,35 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Book Store" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="BookList" ItemsSource="{Binding Books}" Margin="92,56,400,217">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding title}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Author.name}"/>
-                        <TextBlock Text="{Binding Category.name}"/>
-                        <!-- Wyświetl inne właściwości książki -->
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <DataGrid x:Name="BookList" ItemsSource="{Binding Books}" AutoGenerateColumns="False" Margin="30,56,400,217" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Książki" Binding="{Binding bookId}" Width="Auto" />
+                <DataGridTextColumn Header="Tytuł" Binding="{Binding title}" Width="*" />
+                <DataGridTextColumn Header="Autor" Binding="{Binding Author.name}" Width="*" />
+                <DataGridTextColumn Header="Kategoria" Binding="{Binding Category.name}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Dodaj książkę" Click="AddBookButton_Click" Margin="10,278,627,86"/>
         <Button Content="Usuń książkę" Click="DeleteBookButton_Click" Margin="566,237,45,113"/>
         <Button Content="Zamów książkę" Click="OrderBookButton_Click" Margin="264,256,300,86"/>
 
         <StackPanel Margin="415,56,18,217">
             <TextBlock Text="Lista zamówień:" FontWeight="Bold" Margin="10"/>
-            <ListBox x:Name="OrderList" ItemsSource="{Binding Orders}" Height="100" Width="282">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding orderType}" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding expectedOrderDate}"/>
-                            <!-- Wyświetl inne właściwości zamówienia -->
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <DataGrid x:Name="OrderList" ItemsSource="{Binding Orders}" AutoGenerateColumns="False" Height="100" Width="282" HeadersVisibility="Column">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Książki" Binding="{Binding Book.bookId}" Width="Auto" />
+                    <DataGridTextColumn Header="Typ zamówienia" Binding="{Binding orderType}" Width="*" />
+                    <DataGridTextColumn Header="Oczekiwana data dostawy" Binding="{Binding expectedOrderDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Window>

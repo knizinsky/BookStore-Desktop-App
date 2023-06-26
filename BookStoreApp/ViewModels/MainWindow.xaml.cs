@@ -48,9 +48,10 @@ namespace BookStoreApp
                 var order = new Orders
                 {
                     orderType = "Zamówienie",
-                    expectedOrderDate = DateTime.Now.AddDays(7),
                     bookId = selectedBook.bookId
                 };
+
+                order.GenerateExpectedOrderDate();
 
                 _viewModel.CreateOrder(order);
                 _viewModel.RefreshBookList();
@@ -61,6 +62,7 @@ namespace BookStoreApp
                 MessageBox.Show("Wybierz książkę do zamówienia.");
             }
         }
+
 
     }
 

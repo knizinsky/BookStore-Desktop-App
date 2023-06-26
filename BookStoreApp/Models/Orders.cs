@@ -21,5 +21,12 @@ namespace BookStoreApp
         {
             orderType= string.Empty;
         }
+
+        public void GenerateExpectedOrderDate()
+        {
+            var random = new Random();
+            int days = random.Next(2, 10);
+            expectedOrderDate = DateTime.Now.AddDays(days);
+        }
     }
 }
