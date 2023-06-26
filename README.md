@@ -6,19 +6,17 @@ BookStoreApp is a C# application that manages a bookstore's inventory and allows
 
 To run the BookStoreApp application, perform the following steps:
 
-1. Create a SQL Server database and then update the connection string in the `BookStoreDbContext` class to point to your database. [Database Configuration](#database-configuration).
+1. Open SSMS and create a SQL Server database. Then open the project using your preferred IDE and update the connection string in the `BookStoreDbContext` class to point to your database. [Database Configuration](#database-configuration).
 
-2. Build the project using your preferred IDE or the command line.
+2. Make sure you have installed all important NuGet packages such as: `Microsoft.EntityFrameworkCore`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.EntityFrameworkCore.Tools`
 
-3. Make sure you have installed all important NuGet packages such as: `Microsoft.EntityFrameworkCore`, `Microsoft.EntityFrameworkCore.SqlServer`, `Microsoft.EntityFrameworkCore.Tools`
+3. Open the NuGet Package Management Console in your project (e.g. in Visual Studio select "Tools" -> "NuGet Package Manager" -> "Package Manager Console").
 
-4. Open the NuGet Package Management Console in your project (e.g. in Visual Studio select "Tools" -> "NuGet Package Manager" -> "Package Manager Console").
+4. Type the following command to create a migration for the data model: `Add-Migration InitialCreate`. And after that type: `Update-Database`
 
-5. Type the following command to create a migration for the data model: `Add-Migration InitialCreate`. And after that type: `Update-Database`
+5. Run the application, and the main window will appear, showing the list of books in the inventory.
 
-6. Run the application, and the main window will appear, showing the list of books in the inventory.
-
-7. Use the provided buttons to add, delete, or order books.
+6. Use the provided buttons to add, delete, or order books.
 
 Please note that the application assumes a working database connection and suitable database schema is set up for the application to function properly.
 
