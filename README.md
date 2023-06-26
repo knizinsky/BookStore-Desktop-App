@@ -34,8 +34,8 @@ Data Source=ACERASPIRE5\\SQLEXPRESS;Initial Catalog=BookShop;Integrated Security
 The `OnModelCreating` method in the `BookStoreDbContext` class defines the relationships between the entities using Fluent API. It configures the foreign key relationships between `Book` and `Author`, `Book` and `Category`, and `Orders` and `Book`.
 
 ## Screenshots
-![image](https://github.com/knizinsky/BookStore-Desktop-App/assets/108873272/64593780-5234-4dc3-9289-d674dffda0bc)
-![image](https://github.com/knizinsky/BookStore-Desktop-App/assets/108873272/d0347279-8b63-43bc-8436-5d01d247a74c)
+![image](https://github.com/knizinsky/BookStore-Desktop-App/assets/108873272/499253b0-c5d0-44f5-b762-d4ab9726ff50)
+![image](https://github.com/knizinsky/BookStore-Desktop-App/assets/108873272/9a38165b-ec9d-4768-971c-48d015e1c4b7)
 
 ## User Interface
 
