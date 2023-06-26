@@ -6,7 +6,7 @@ BookStoreApp is a C# application that manages a bookstore's inventory and allows
 
 To run the BookStoreApp application, perform the following steps:
 
-1. Create a SQL Server database and update the connection string in the `BookStoreDbContext` class to point to your database. [Database Configuration](#database-configuration).
+1. Create a SQL Server database and then update the connection string in the `BookStoreDbContext` class to point to your database. [Database Configuration](#database-configuration).
 
 2. Build the project using your preferred IDE or the command line.
 
