@@ -1,4 +1,3 @@
-
 # BookStoreApp
 
 BookStoreApp is a C# application that manages a bookstore's inventory and allows users to add, delete, and order books. It utilizes the Entity Framework Core and a SQL Server database for data storage.
@@ -7,7 +6,7 @@ BookStoreApp is a C# application that manages a bookstore's inventory and allows
 
 To run the BookStoreApp application, perform the following steps:
 
-1. Set up a SQL Server database and update the connection string in the `BookStoreDbContext` class to point to your database.
+1. Create a SQL Server database and update the connection string in the `BookStoreDbContext` class to point to your database. [Database Configuration](#database-configuration).
 
 2. Build the project using your preferred IDE or the command line.
 
@@ -16,7 +15,7 @@ To run the BookStoreApp application, perform the following steps:
 4. Open the NuGet Package Management Console in your project (e.g. in Visual Studio select "Tools" -> "NuGet Package Manager" -> "Package Manager Console").
 
 5. Type the following command to create a migration for the data model: `Add-Migration InitialCreate`. And after that type: `Update-Database`
-   
+
 6. Run the application, and the main window will appear, showing the list of books in the inventory.
 
 7. Use the provided buttons to add, delete, or order books.
