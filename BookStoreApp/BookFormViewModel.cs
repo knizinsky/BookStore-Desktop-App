@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace BookStoreApp
 {
@@ -43,38 +44,20 @@ namespace BookStoreApp
                     return;
                 }
 
-                if (Book.Category == null || Book.Category.categoriesId == 0)
-                {
-                    Categories newCategory = new Categories()
-                    {
-                        name = "Nowa kategoria",
-                        description = "Opis nowej kategorii"
-                    };
-
-                    _dbContext.Categories.Add(newCategory);
-                    _dbContext.SaveChanges();
-
-                    Book.categoriesId = newCategory.categoriesId;
+                if (Book.Category == null || Book.Category.name.Trim() == "" || Book.Category.categoriesId == 0)
+                { 
+                    MessageBox.Show("Kategoria nie może być pusta.");
+                    return;
                 }
                 else
                 {
                     Book.categoriesId = Book.Category.categoriesId;
                 }
 
-                if (Book.Author == null || Book.Author.AuthorsId == 0)
+                if (Book.Author.name == null || Book.Author.name.Trim() == "")
                 {
-                    Authors newAuthor = new Authors()
-                    {
-                        name = "Nowy Autor",
-                        secondName = "Nowy Autor"
-                    };
-
-                    _dbContext.Authors.Add(newAuthor);
-                    _dbContext.SaveChanges();
-
-                    int newAuthorId = newAuthor.AuthorsId;
-
-                    Book.AuthorsId = newAuthorId;
+                    MessageBox.Show("Autor nie może być pusty.");
+                    return;
                 }
                 else
                 {
@@ -95,7 +78,7 @@ namespace BookStoreApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Wystąpił błąd podczas zapisywania książki: {ex.InnerException}");
+                MessageBox.Show($"Wystąpił błąd podczas zapisywania książki: {ex.Message}");
             }
         }
 

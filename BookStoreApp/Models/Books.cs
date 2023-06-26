@@ -24,6 +24,10 @@ namespace BookStoreApp
 
         public ICollection<Orders> Orders { get; set; }
 
-        
+        public Book()
+        {
+            Author= new Authors();
+            Category= new Categories();
+        }
     }
 }
