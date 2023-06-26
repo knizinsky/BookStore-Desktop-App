@@ -76,8 +76,5 @@ namespace BookStoreApp
                 MessageBox.Show("Wybierz książkę do zamówienia.");
             }
         }
-
-
     }
-
 }

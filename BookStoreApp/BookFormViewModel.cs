@@ -2,14 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
 
 namespace BookStoreApp
 {
     internal class BookFormViewModel
     {
         private BookStoreDbContext _dbContext;
-
         public Book Book { get; set; }
         public ObservableCollection<Authors> Authors { get; set; }
         public ObservableCollection<Categories> Categories { get; set; }
@@ -81,6 +79,5 @@ namespace BookStoreApp
                 MessageBox.Show($"Wystąpił błąd podczas zapisywania książki: {ex.Message}");
             }
         }
-
     }
 }

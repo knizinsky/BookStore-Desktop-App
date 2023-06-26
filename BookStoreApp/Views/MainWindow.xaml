@@ -70,7 +70,7 @@
             <!-- 35% szerokości okienka -->
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="BookList" ItemsSource="{Binding Books}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0">
+        <DataGrid x:Name="BookList" ItemsSource="{Binding Books}" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Książki" Binding="{Binding bookId}" Width="Auto" />
                 <DataGridTextColumn Header="Tytuł" Binding="{Binding title}" Width="*" />
@@ -85,7 +85,7 @@
             <Button Content="Zamów książkę" Click="OrderBookButton_Click" />
         </StackPanel>
 
-        <DataGrid x:Name="OrderList" ItemsSource="{Binding Orders}" AutoGenerateColumns="False" HeadersVisibility="Column" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+        <DataGrid x:Name="OrderList" ItemsSource="{Binding Orders}" AutoGenerateColumns="False" HeadersVisibility="Column" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Książki" Binding="{Binding Book.bookId}" Width="Auto" />
                 <DataGridTextColumn Header="Typ zamówienia" Binding="{Binding orderType}" Width="*" />
