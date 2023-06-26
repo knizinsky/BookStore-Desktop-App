@@ -5,6 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents a book.
+    /// </summary>
     public class Book
     {
         public int bookId { get; set; }

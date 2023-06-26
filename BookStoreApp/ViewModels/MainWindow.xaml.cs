@@ -4,10 +4,16 @@ using System.Windows;
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents the main window of the application.
+    /// </summary>
     public partial class MainWindow : Window
     {
         private MainWindowViewModel _viewModel;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

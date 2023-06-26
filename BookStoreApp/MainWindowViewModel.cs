@@ -6,12 +6,18 @@ using System.Windows;
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents the main view model for the MainWindow.
+    /// </summary>
     internal class MainWindowViewModel
     {
         private BookStoreDbContext _dbContext;
         public ObservableCollection<Book> Books { get; set; }
         public ObservableCollection<Orders> Orders { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the MainWindowViewModel class.
+        /// </summary>
         public MainWindowViewModel()
         {
             _dbContext = new BookStoreDbContext();

@@ -2,6 +2,9 @@
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents a partial class for the BookForm window.
+    /// </summary>
     public partial class BookForm : Window
     {
         private BookFormViewModel _viewModel;

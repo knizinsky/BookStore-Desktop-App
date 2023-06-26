@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents an author of a book.
+    /// </summary>
     public class Authors
     {
         [Key]

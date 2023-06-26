@@ -5,6 +5,9 @@ using System.Windows;
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents a view model for the BookForm window.
+    /// </summary>
     internal class BookFormViewModel
     {
         private BookStoreDbContext _dbContext;

@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents a Book Category.
+    /// </summary>
     public class Categories
     {
         [Key]

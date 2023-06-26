@@ -2,6 +2,9 @@
 
 namespace BookStoreApp
 {
+    /// <summary>
+    /// Represents the database context for the BookStoreApp.
+    /// </summary>
     public class BookStoreDbContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
