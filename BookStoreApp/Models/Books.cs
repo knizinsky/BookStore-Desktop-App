@@ -26,6 +26,10 @@ namespace BookStoreApp
 
         public Book()
         {
+            Orders = new List<Orders>();
+            ISBN= string.Empty;
+            title= string.Empty;
+            description= string.Empty;
             Author= new Authors();
             Category= new Categories();
         }

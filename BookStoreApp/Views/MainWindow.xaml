@@ -89,7 +89,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Książki" Binding="{Binding Book.bookId}" Width="Auto" />
                 <DataGridTextColumn Header="Typ zamówienia" Binding="{Binding orderType}" Width="*" />
-                <DataGridTextColumn Header="Oczekiwana data dostawy" Binding="{Binding expectedOrderDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
+                <DataGridTextColumn Header="Przewidywana data dostawy" Binding="{Binding expectedOrderDate, StringFormat='{}{0:dd-MM-yyyy}'}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
