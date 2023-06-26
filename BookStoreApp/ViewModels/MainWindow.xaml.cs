@@ -24,17 +24,24 @@ namespace BookStoreApp
 
         private void DeleteBookButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedBook = (Book)BookList.SelectedItem;
-            if (selectedBook != null)
+            try
             {
-                var result = MessageBox.Show("Czy na pewno chcesz usunąć tę książkę?", "Potwierdź usunięcie", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
+                var selectedBook = (Book)BookList.SelectedItem;
+                if (selectedBook != null)
                 {
-                    _viewModel.DeleteBook(selectedBook);
-                    _viewModel.RefreshBookList();
+                    var result = MessageBox.Show("Czy na pewno chcesz usunąć tę książkę?", "Potwierdź usunięcie", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        _viewModel.DeleteBook(selectedBook);
+                        _viewModel.RefreshBookList();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wybierz książkę do usunięcia.");
                 }
             }
-            else
+            catch(Exception)
             {
                 MessageBox.Show("Wybierz książkę do usunięcia.");
             }
@@ -42,22 +49,29 @@ namespace BookStoreApp
 
         private void OrderBookButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedBook = (Book)BookList.SelectedItem;
-            if (selectedBook != null)
+            try
             {
-                var order = new Orders
+                var selectedBook = (Book)BookList.SelectedItem;
+                if (selectedBook != null)
                 {
-                    orderType = "Zamówienie",
-                    bookId = selectedBook.bookId
-                };
+                    var order = new Orders
+                    {
+                        orderType = "Zamówienie",
+                        bookId = selectedBook.bookId
+                    };
 
-                order.GenerateExpectedOrderDate();
+                    order.GenerateExpectedOrderDate();
 
-                _viewModel.CreateOrder(order);
-                _viewModel.RefreshBookList();
-                MessageBox.Show("Książka została zamówiona.");
+                    _viewModel.CreateOrder(order);
+                    MessageBox.Show("Książka została zamówiona.");
+                    _viewModel.RefreshBookList();
+                }
+                else
+                {
+                    MessageBox.Show("Wybierz książkę do zamówienia.");
+                }
             }
-            else
+            catch (Exception)
             {
                 MessageBox.Show("Wybierz książkę do zamówienia.");
             }
