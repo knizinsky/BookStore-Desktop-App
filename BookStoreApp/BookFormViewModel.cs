@@ -44,7 +44,7 @@ namespace BookStoreApp
                     return;
                 }
 
-                if (Book.Category == null || Book.Category.name.Trim() == "" || Book.Category.categoriesId == 0)
+                if (Book.Category == null || Book.Category.name.Trim() == "")
                 { 
                     MessageBox.Show("Kategoria nie może być pusta.");
                     return;
